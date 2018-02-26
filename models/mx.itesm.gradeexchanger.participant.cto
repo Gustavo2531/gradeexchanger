@@ -24,6 +24,6 @@ participant B2BPartner extends GEParticipant {
   /** Additional Attributes */
 }
 
-cd participant GEStudent extends GEParticipant {
+participant GEStudent extends GEParticipant {
   /** Additional Attributes */
 }
