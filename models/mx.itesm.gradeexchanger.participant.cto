@@ -1,0 +1,29 @@
+namespace  mx.itesm.gradeexchanger.participant
+
+abstract participant GEParticipant identified by participantKey {
+  o String          participantKey
+  o Contact         contact
+}
+
+concept Contact {
+  o String fname
+  o String lname
+  o String email
+}
+
+participant GENetworkAdmin extends GEParticipant {
+  /** This is a concrete resource definition */
+}
+
+participant GEProffesor extends GEParticipant {
+  o String  department
+ 
+}
+
+participant B2BPartner extends GEParticipant {
+  /** Additional Attributes */
+}
+
+cd participant GEStudent extends GEParticipant {
+  /** Additional Attributes */
+}
