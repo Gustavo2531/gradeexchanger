@@ -1,0 +1,9 @@
+namespace mx.itesm.gradeexchanger.students
+
+asset Student identified by studentId {
+  o String      studentId
+  o String      firstName
+  o String      lastName
+  o Double      average
+  
+}

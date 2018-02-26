@@ -1,21 +1,14 @@
 namespace mx.itesm.gradeexchanger.exchanger
 
-/** Aircraft is an ACME Asset*/
+
 
 asset Course identified by courseId {
   o String      courseId 
-  o String      studentId
   o String      name
-  o Integer     group
+  o Integer     units
+}
+
+concept Group{
+  o String      period
   o String      professorId
-  o Double      grade
-  
- // o Ownership   ownershipType default="LEASED"
-
-  // Number of seats per class 
-  //o Integer     firstClassSeats
-  //o Integer     businessClassSeats
-  //o Integer     economyClassSeats
-
-  //o String      nickName  optional 
 }
