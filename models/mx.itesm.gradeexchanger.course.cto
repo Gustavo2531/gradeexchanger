@@ -1,5 +1,7 @@
 namespace mx.itesm.gradeexchanger.courses
 
+import mx.itesm.gradeexchanger.student.Student
+
 asset Course identified by courseId {
   o String      courseId 
   o String      name
@@ -9,5 +11,30 @@ asset Course identified by courseId {
 
 concept Group{
   o String      period
-  o String      professorId
+  o String      professorId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+}
+
+transaction createCourseS{
+  o String      courseId 
+  o String      name
+  o Integer     units
+  o String      period
+  o String      professorId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+
+}
+
+event CourseCreated {
+  o   String      courseId
+}
+
+transaction AssignCourse {
+  o   String    courseId
+  o   String    studentId
+  o   Double    average range=[0.0,100.0]
+}
+
+// Event indicating that aircraft was assigned
+event CourseAssigned {
+  o   String    courseId
+  o   String    studentId
 }
