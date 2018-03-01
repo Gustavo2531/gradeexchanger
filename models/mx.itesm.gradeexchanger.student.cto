@@ -6,16 +6,25 @@ asset Student identified by studentId {
   o String      studentId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
   o String      firstName
   o String      lastName
-  o Double      average range = [0.0, 100.0]
+  o Double      average range = [0.0, 100.0] optional
   o Double[]      averageCourse optional
   --> Career      career  
   --> Course[]      course  optional
+}
+transaction CreateStudent {
+  o String      studentId
+  o String      firstName
+  o String      lastName
+  o String      careerId 
+}
+
+event StudentCreated {
+  o   String      studentId
 }
 
 transaction AssignCareer{
   o   String    careerId
   o   String    studentId
- 
 }
 
 // Event indicating that aircraft was assigned
