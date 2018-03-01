@@ -1,9 +1,10 @@
 namespace mx.itesm.gradeexchanger.students
+import mx.itesm.gradeexchanger.career.Career
 
 asset Student identified by studentId {
   o String      studentId
   o String      firstName
   o String      lastName
   o Double      average
-  
+  --> Career      career   
 }

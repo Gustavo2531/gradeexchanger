@@ -1,11 +1,10 @@
-namespace mx.itesm.gradeexchanger.exchanger
-
-
+namespace mx.itesm.gradeexchanger.courses
 
 asset Course identified by courseId {
   o String      courseId 
   o String      name
   o Integer     units
+  o Group       group
 }
 
 concept Group{

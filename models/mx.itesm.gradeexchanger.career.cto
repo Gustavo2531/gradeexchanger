@@ -1,0 +1,10 @@
+namespace mx.itesm.gradeexchanger.career
+
+import mx.itesm.gradeexchanger.courses.Course
+
+asset Career identified by careerId {
+  o String      careerId
+  o String      name
+  o Integer     units
+ //--> Course[]      course      
+}
