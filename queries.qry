@@ -1,7 +1,7 @@
 query AllStudents {
   description: "Returns all Students in the registry"
   statement:  
-    SELECT  mx.itesm.gradeexchanger.student.Student
+    SELECT  mx.itesm.gradeexchanger.students.Student
 }
 
 
@@ -17,7 +17,7 @@ query AllCourses {
 query Student {
   description: "Returns a Student"
   statement:  
-    SELECT  mx.itesm.gradeexchanger.student.Student
+    SELECT  mx.itesm.gradeexchanger.students.Student
       WHERE   (studentId == _$student_id)
 }
 

@@ -1,6 +1,5 @@
 namespace mx.itesm.gradeexchanger.courses
 
-import mx.itesm.gradeexchanger.student.Student
 
 asset Course identified by courseId {
   o String      courseId 
