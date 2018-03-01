@@ -1,0 +1,29 @@
+query AllStudents {
+  description: "Returns all Students in the registry"
+  statement:  
+    SELECT  mx.itesm.gradeexchanger.student.Student
+}
+
+
+// Uses the Limit and Skip
+query AllCourses {
+  description: "Returns all Courses in the registry"
+    statement:  
+      SELECT  mx.itesm.gradeexchanger.courses.Course
+}
+
+
+// Selects flights based on the origin and destination
+query Student {
+  description: "Returns a Student"
+  statement:  
+    SELECT  mx.itesm.gradeexchanger.student.Student
+      WHERE   (studentId == _$student_id)
+}
+
+// Selects flights based on the origin, destination & exact Schedule datetime (yep its not good :)
+
+
+
+
+

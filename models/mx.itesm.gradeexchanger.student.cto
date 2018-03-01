@@ -1,10 +1,36 @@
 namespace mx.itesm.gradeexchanger.students
 import mx.itesm.gradeexchanger.career.Career
+import mx.itesm.gradeexchanger.courses.Course
 
 asset Student identified by studentId {
   o String      studentId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
   o String      firstName
   o String      lastName
   o Double      average range = [0.0, 100.0]
-  --> Career      career   
+  o Double[]      averageCourse optional
+  --> Career      career  
+  --> Course[]      course  optional
+}
+
+transaction AssignCareer{
+  o   String    careerId
+  o   String    studentId
+ 
+}
+
+// Event indicating that aircraft was assigned
+event CareerAssigned {
+  o   String    careerId
+  o   String    studentId
+}
+transaction AssignCourse {
+  o   String    courseId
+  o   String    studentId
+  o   Double    averageCourse range=[0.0,100.0]
+}
+
+// Event indicating that aircraft was assigned
+event CourseAssigned {
+  o   String[]    courseId
+  o   String    studentId
 }
