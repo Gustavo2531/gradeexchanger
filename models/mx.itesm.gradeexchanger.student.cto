@@ -1,4 +1,5 @@
 namespace mx.itesm.gradeexchanger.students
+
 import mx.itesm.gradeexchanger.career.Career
 import mx.itesm.gradeexchanger.courses.Course
 
