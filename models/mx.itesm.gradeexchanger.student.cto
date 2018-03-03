@@ -9,7 +9,7 @@ asset Student identified by studentId {
   o String      lastName
   o Double      average range = [0.0, 100.0] optional
   o Double[]      averageCourse optional
-  --> Career      career  
+  --> Career      career  optional
   --> Course[]      course  optional
 }
 transaction CreateStudent {
