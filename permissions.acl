@@ -1,0 +1,100 @@
+rule GENetworkAdminPermissionSystem {
+  description: "can READ the system registries"
+  participant: "ANY"
+  operation: READ
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW  
+}
+
+// #1 Allow the 'System Network Admin' to carry out Identities management
+//    and Network operations
+rule NetworkControlPermission {
+  description:  "give admin ALL access to system resources"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.*"
+  action: ALLOW  
+}
+
+rule ParticipantRegistryControlPermission {
+  description:  "give admin ALL access to ACME participant types"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "mx.itesm.gradeexchanger.participant.*"
+  action: ALLOW  
+}
+
+rule ParticipantRegistryControlPermissionALL {
+  description:  "give admin ALL access to ACME participant types"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: ALL
+  resource: "mx.itesm.gradeexchanger.**"
+  action: ALLOW  
+}
+
+
+rule GENetworkAdminPermissionAcme {
+  description: "can READ the resource registries"
+  participant: "mx.itesm.gradeexchanger.participant.GENetworkAdmin"
+  operation: ALL
+  resource: "mx.itesm.gradeexchanger.**"
+  action: ALLOW
+}
+
+rule GEAdminPermissionHistorian {
+  description: "can write HistorianRecord to the Historian"
+  participant: "org.hyperledger.composer.system.NetworkAdmin"
+  operation: CREATE
+  resource: "org.hyperledger.composer.system.HistorianRecord"
+  action: ALLOW  
+}
+// #3 Rules for ACMEPersonnel
+
+// #3.1 Needed for ACME Participants to be able to execute transactions
+
+rule GEParticipantPermissionHistorian {
+  description: "can write HistorianRecord to the Historian"
+  participant: "mx.itesm.gradeexchanger.participant.B2BPartner"
+  operation: CREATE
+  resource: "org.hyperledger.composer.system.HistorianRecord"
+  action: ALLOW  
+}
+
+
+// #3.2 Needed for Creating the "CreateFlight" transaction
+// Only employees @ ACME can execute this transaction
+rule B2BPartnerStudent {
+  description: "only ACME personnel can create a flight"
+  participant: "mx.itesm.gradeexchanger.participant.B2BPartner"
+  operation: CREATE
+  resource: "mx.itesm.gradeexchanger.**"
+  transaction: "mx.itesm.gradeexchanger.students.CreateStudent"
+  action: ALLOW
+}
+
+rule B2BPartnerAssignCourse {
+  description: "only ACME personnel can create a flight"
+  participant: "mx.itesm.gradeexchanger.participant.B2BPartner"
+  operation: CREATE
+  resource: "mx.itesm.gradeexchanger.**"
+  transaction: "mx.itesm.gradeexchanger.students.AssignCourse"
+  action: ALLOW
+}
+
+rule B2BPartnerCareer {
+  description: "only ACME personnel can create a flight"
+  participant: "mx.itesm.gradeexchanger.participant.B2BPartner"
+  operation: CREATE
+  resource: "mx.itesm.gradeexchanger.**"
+  transaction: "mx.itesm.gradeexchanger.career.CreateCareer"
+  action: ALLOW
+}
+
+rule B2BPartnerCourse {
+  description: "only ACME personnel can create a flight"
+  participant: "mx.itesm.gradeexchanger.participant.B2BPartner"
+  operation: CREATE
+  resource: "mx.itesm.gradeexchanger.**"
+  transaction: "mx.itesm.gradeexchanger.courses.createCourseS"
+  action: ALLOW
+}
