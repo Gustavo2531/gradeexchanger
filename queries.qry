@@ -4,6 +4,12 @@ query AllStudents {
     SELECT  mx.itesm.gradeexchanger.students.Student
 }
 
+query AllCareers {
+  description: "Returns all AllCareers in the registry"
+  statement:  
+    SELECT  mx.itesm.gradeexchanger.career.Career
+}
+
 
 // Uses the Limit and Skip
 query AllCourses {

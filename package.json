@@ -9,14 +9,17 @@
   "email": "gustavo31.25@gmail.com",
   "license": "Apache-2.0",
   "devDependencies": {
+    "chai": "^4.1.2",
     "composer-admin": "latest",
     "composer-client": "latest",
     "composer-common": "latest",
-    "composer-connector-embedded": "latest",
-    "chai": "latest",
+    "composer-connector-embedded": "^0.16.5",
     "eslint": "latest",
     "istanbul": "latest",
     "mkdirp": "latest",
     "mocha": "latest"
+  },
+  "dependencies": {
+    "EventEmitter": "^1.0.0"
   }
 }
