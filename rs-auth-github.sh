@@ -16,8 +16,8 @@ export COMPOSER_PROVIDERS='{
   "github": {
     "provider": "github",
     "module": "passport-github",
-    "clientID": "GITHUB CLIENT ID",
-    "clientSecret": "GITHUB CLIENT SECRET",
+    "clientID": "771dd3de54f8c0733027",
+    "clientSecret": "243aa05cccd78bbf2c16f3fba52e9db12f387734",
     "authPath": "/auth/github",
     "callbackURL": "/auth/github/callback",
     "successRedirect": "/",
