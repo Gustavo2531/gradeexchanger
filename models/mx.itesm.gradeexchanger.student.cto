@@ -8,7 +8,6 @@ asset Student identified by studentId {
   o String      firstName
   o String      lastName
   o Double      average range = [0.0, 100.0] optional
-  o Double[]      averageCourse optional
   --> Career      career  optional
   //--> Course[]      course  optional
   o CoursesApproved[] coursesApproved optional
@@ -17,14 +16,17 @@ asset Student identified by studentId {
 }
 concept CoursesApproved{
   --> Course   courseId
+  o String    period
   o Double    grade
 }
 concept CoursesFailed{
   --> Course   courseId
+  o String    period
   o Double    grade
 }
 concept CurrentCourses{
   --> Course   courseId
+  o String    period
   o Double    grade optional
 }
 transaction CreateStudent {

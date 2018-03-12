@@ -13,8 +13,8 @@ asset Career identified by careerId {
  //--> Course[]      course      
 }
  concept GroupNew{
-  --> Course[]   courseId
-  --> Area      areaId  
+  --> Course[]   courses
+  --> Area      area  
 }
 transaction CreateCareer {
   o String      careerId 
@@ -24,7 +24,7 @@ transaction CreateCareer {
 
 transaction AddGroupNew{
   o String areaId
-  o String[] courseId
+  o String courseId
   o String careerId 
 }
 
