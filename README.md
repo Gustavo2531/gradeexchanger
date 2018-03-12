@@ -29,5 +29,5 @@ composer identity issue -u acloudfan -a mx.itesm.gradeexchanger.participant.GENe
 composer archive create  --sourceType dir --sourceName ../ -a archiveAny2.bna
 
 #8 Update the Network
-composer network update -a ./archiveAny2.bna -c admin@grade-exchanger
+composer network update -a ./archive15.bna -c admin@grade-exchanger
 composer-rest-server -c acloudfan@grade-exchanger -n always -w true

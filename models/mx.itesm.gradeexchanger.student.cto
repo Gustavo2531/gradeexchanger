@@ -10,7 +10,22 @@ asset Student identified by studentId {
   o Double      average range = [0.0, 100.0] optional
   o Double[]      averageCourse optional
   --> Career      career  optional
-  --> Course[]      course  optional
+  //--> Course[]      course  optional
+  o CoursesApproved[] coursesApproved optional
+  o CurrentCourses[] currentCourses optional
+  o CoursesFailed[]  coursesFailed optional
+}
+concept CoursesApproved{
+  --> Course   courseId
+  o Double    grade
+}
+concept CoursesFailed{
+  --> Course   courseId
+  o Double    grade
+}
+concept CurrentCourses{
+  --> Course   courseId
+  o Double    grade optional
 }
 transaction CreateStudent {
   o String      studentId
@@ -33,14 +48,37 @@ event CareerAssigned {
   o   String    careerId
   o   String    studentId
 }
-transaction AssignCourse {
+transaction AssignCourseApproved {
   o   String    courseId
   o   String    studentId
-  o   Double    averageCourse range=[0.0,100.0]
+  o   Double    grade
 }
 
 // Event indicating that aircraft was assigned
-event CourseAssigned {
+event CourseAssignedApproved {
+  o   String[]    courseId
+  o   String    studentId
+}
+transaction AssignCourseFailed {
+  o   String    courseId
+  o   String    studentId
+  o   Double    grade
+}
+
+// Event indicating that aircraft was assigned
+event CourseAssignedFailed {
+  o   String[]    courseId
+  o   String    studentId
+}
+
+transaction AssignCourseCurrent {
+  o   String    courseId
+  o   String    studentId
+  o   Double    grade
+}
+
+// Event indicating that aircraft was assigned
+event CourseAssignedCurrent {
   o   String[]    courseId
   o   String    studentId
 }

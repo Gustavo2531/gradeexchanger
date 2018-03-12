@@ -1,12 +1,20 @@
 namespace mx.itesm.gradeexchanger.career
 
+import mx.itesm.gradeexchanger.areas.Area
 import mx.itesm.gradeexchanger.courses.Course
+
 
 asset Career identified by careerId {
   o String      careerId 
   o String      name
   o Integer     units
+  o GroupNew[]   groupNew optional
+
  //--> Course[]      course      
+}
+ concept GroupNew{
+  --> Course[]   courseId
+  --> Area      areaId  
 }
 transaction CreateCareer {
   o String      careerId 
@@ -14,6 +22,15 @@ transaction CreateCareer {
   o Integer     units
 }
 
+transaction AddGroupNew{
+  o String areaId
+  o String[] courseId
+  o String careerId 
+}
+
+event AddedGroupNew{
+  o String careerId
+}
 event CareerCreated {
   o   String      careerId
 }

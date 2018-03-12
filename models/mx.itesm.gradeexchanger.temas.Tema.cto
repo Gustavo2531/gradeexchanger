@@ -1,0 +1,19 @@
+namespace mx.itesm.gradeexchanger.tema
+
+
+
+asset Tema identified by temaId {
+  o String      temaId 
+  o String      name
+        
+}
+ 
+transaction CreateTema{
+  o String      temaId 
+  o String      name
+  
+}
+
+event TemaCreated {
+  o   String      temaId
+}

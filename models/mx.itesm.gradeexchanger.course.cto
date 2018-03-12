@@ -1,27 +1,35 @@
 namespace mx.itesm.gradeexchanger.courses
 
+import mx.itesm.gradeexchanger.areas.Area
+import mx.itesm.gradeexchanger.tema.Tema
 
 asset Course identified by courseId {
   o String      courseId 
   o String      name
   o Integer     units
-  o Group       group
+  --> Tema[]    tema   
+  --> Area       area
 }
 
-concept Group{
-  o String      period
-  o String      professorId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
-}
 
 transaction createCourseS{
   o String      courseId 
   o String      name
   o Integer     units
   o String      period
-  o String      professorId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+  o String[]      temaId
+  o String      areaId
+ // o String      professorId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
 
 }
 
+transaction addSubject{
+   o String      courseId
+   o String      temaId
+}
+event AddedSubject{
+  o String courseId
+}
 event CourseCreated {
   o   String      courseId
 }

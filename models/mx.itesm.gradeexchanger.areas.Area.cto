@@ -1,0 +1,19 @@
+namespace mx.itesm.gradeexchanger.areas
+
+import mx.itesm.gradeexchanger.courses.Course
+
+asset Area identified by areaId {
+  o String      areaId 
+  o String      name
+        
+}
+ 
+transaction CreateArea{
+  o String      areaId 
+  o String      name
+  
+}
+
+event AreaCreated {
+  o   String      areaId
+}
