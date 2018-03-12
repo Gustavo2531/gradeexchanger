@@ -6,6 +6,7 @@ import mx.itesm.gradeexchanger.tema.Tema
 asset Course identified by courseId {
   o String      courseId 
   o String      name
+  o String      period
   o Integer     units
   --> Tema[]    tema   
   --> Area       area
@@ -26,6 +27,7 @@ transaction createCourseS{
 transaction addSubject{
    o String      courseId
    o String      temaId
+   
 }
 event AddedSubject{
   o String courseId

@@ -24,7 +24,7 @@ transaction CreateCareer {
 
 transaction AddGroupNew{
   o String areaId
-  o String courseId
+  o String[] courseId
   o String careerId 
 }
 

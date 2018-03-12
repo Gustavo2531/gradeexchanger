@@ -29,6 +29,7 @@ concept CurrentCourses{
   o String    period
   o Double    grade optional
 }
+
 transaction CreateStudent {
   o String      studentId
   o String      firstName
@@ -50,20 +51,22 @@ event CareerAssigned {
   o   String    careerId
   o   String    studentId
 }
-transaction AssignCourseApproved {
+transaction AssignCourse{
   o   String    courseId
   o   String    studentId
+  o String    period
   o   Double    grade
 }
 
 // Event indicating that aircraft was assigned
 event CourseAssignedApproved {
-  o   String[]    courseId
+  o   String    courseId
   o   String    studentId
 }
 transaction AssignCourseFailed {
   o   String    courseId
   o   String    studentId
+  o String    period
   o   Double    grade
 }
 
@@ -76,6 +79,7 @@ event CourseAssignedFailed {
 transaction AssignCourseCurrent {
   o   String    courseId
   o   String    studentId
+  o String    period
   o   Double    grade
 }
 
