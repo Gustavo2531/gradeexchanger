@@ -18,6 +18,19 @@ query AllCourses {
       SELECT  mx.itesm.gradeexchanger.courses.Course
 }
 
+query AllTema {
+  description: "Returns all Temas in the registry"
+    statement:  
+      SELECT  mx.itesm.gradeexchanger.tema.Tema
+}
+
+query AllArea {
+  description: "Returns all Areas in the registry"
+    statement:  
+      SELECT  mx.itesm.gradeexchanger.areas.Area
+}
+
+
 
 // Selects flights based on the origin and destination
 query Student {
@@ -25,6 +38,14 @@ query Student {
   statement:  
     SELECT  mx.itesm.gradeexchanger.students.Student
       WHERE   (studentId == _$student_id)
+}
+
+query StudentHistory {
+  description: "Returns a Student"
+  statement:  
+    SELECT  mx.itesm.gradeexchanger.students.Student
+      WHERE  (studentId == _$student_id )  
+
 }
 
 // Selects flights based on the origin, destination & exact Schedule datetime (yep its not good :)
