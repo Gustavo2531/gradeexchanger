@@ -5,6 +5,22 @@ https://hyperledger.github.io/composer/reference/acl_language.html
 
 Refer to lecture on Access Control Language
 
+##Lo que tienen que hacer ustedes
+#Afuera de la carpeta grade-exchanger donde tienen los shells
+./downloadFabric.sh
+./startFabric.sh
+./createPeerAdminCard.sh
+
+#Luego cd grade-exchanger
+#cd Dist
+composer archive create  --sourceType dir --sourceName ../ -a archiveAnyTest.bna
+composer network deploy -a archiveAnyTest.bna -c PeerAdmin@hlfv1 -Aadmin -S adminpw
+composer card delete -n admin@grade-exchanger
+composer card import -f admin@grade-exchanger.card
+composer network update -a ./archiveAnyTest.bna -c admin@grade-exchanger
+composer-rest-server -c admin@grade-exchanger -n always -w true
+
+###Ya hasta aqui
 
 #1 Create the BNA archive from the folder dist
 composer archive create  --sourceType dir --sourceName ../ -a archiveAny.bna
