@@ -14,7 +14,7 @@ Refer to lecture on Access Control Language
 #Luego cd grade-exchanger
 #cd Dist
 composer archive create  --sourceType dir --sourceName ../ -a archiveAnyTest.bna
-composer network deploy -a archiveAnyTest.bna -c PeerAdmin@hlfv1 -Aadmin -S adminpw
+composer network deploy -a archiveAnyTest.bna -c PeerAdmin@hlfv1 -A admin -S adminpw
 composer card delete -n admin@grade-exchanger
 composer card import -f admin@grade-exchanger.card
 composer network update -a ./archiveAnyTest.bna -c admin@grade-exchanger

@@ -1,0 +1,19 @@
+namespace mx.itesm.gradeexchanger.schools
+
+asset School identified by schoolId {
+  o String      schoolId //regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+  o String      name
+  o Double      minApprovedGrade
+  o Double      maxApprovedGrade
+}
+
+transaction CreateSchool {
+  o String      schoolId //regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
+  o String      name
+  o Double      minApprovedGrade
+  o Double      maxApprovedGrade
+}
+
+event SchoolCreated {
+  o   String      schoolId 
+}
