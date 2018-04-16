@@ -93,7 +93,7 @@ event CourseAssignedFailed {
 }
 
 transaction AssignCourseCurrent {
-  o   String    courseId
+  o   String[]    courseId
   o   String    studentId
   o String    period
   o   Double    grade
