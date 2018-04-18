@@ -56,6 +56,14 @@ query TemaUno {
 
 }
 
+query CursosConEscuela {
+  description: "Returns a Student"
+  statement:  
+    SELECT  mx.itesm.gradeexchanger.courses.Course
+      WHERE  (school == _$school_id)  
+
+}
+
 // Selects flights based on the origin, destination & exact Schedule datetime (yep its not good :)
 
 

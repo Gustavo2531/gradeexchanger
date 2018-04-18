@@ -2,6 +2,8 @@ namespace mx.itesm.gradeexchanger.courses
 
 import mx.itesm.gradeexchanger.areas.Area
 import mx.itesm.gradeexchanger.tema.Tema
+import mx.itesm.gradeexchanger.career.Career
+import mx.itesm.gradeexchanger.schools.School
 
 asset Course identified by courseId {
   o String      courseId 
@@ -10,6 +12,8 @@ asset Course identified by courseId {
   o Integer     units
   --> Tema[]    tema   
   --> Area       area
+  --> School    school optional
+  //--> Career   career optional
 }
 
 
@@ -20,6 +24,8 @@ transaction createCourseS{
   o String      period
   o String[]      temaId
   o String      areaId
+  o String    schoolId
+  //o String    careerId
  // o String      professorId regex=/[aA-zZ][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/
 
 }
