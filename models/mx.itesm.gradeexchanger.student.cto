@@ -13,6 +13,7 @@ asset Student identified by studentId {
   --> School      school  optional
   --> Career      career  optional
   //--> Course[]      course  optional
+  //o CoursesRevalidated[] CoursesRevalidated optional
   o CoursesApproved[] coursesApproved optional
   o CurrentCourses[] currentCourses optional
   o CoursesFailed[]  coursesFailed optional
@@ -22,6 +23,7 @@ concept CoursesApproved{
   o String    escuela
   o String    period
   o Double    grade
+  o Boolean   done
   //
 }
 concept CoursesFailed{
@@ -96,7 +98,18 @@ event CourseAssignedFailed {
   o   String[]    courseId
   o   String    studentId
 }
+transaction RevalidateCourse{
+  o   String    courseId
+  o   String    courseIdNuevo
+  o   String    studentId
+  o   String    newSchool
 
+}
+
+event CourseRevalidated {
+  o   String    courseId
+  o   String    studentId
+}
 transaction AssignCourseCurrent {
   o   String    courseId
   o   String    studentId

@@ -43,8 +43,16 @@ query Student {
 query StudentHistory {
   description: "Returns a Student"
   statement:  
-    SELECT  mx.itesm.gradeexchanger.students.Student
-      WHERE  (studentId == _$student_id )  
+    SELECT  mx.itesm.gradeexchanger.tema.Tema
+       WHERE  (temaId == _$tema_id )  
+
+}
+
+query TemaUno {
+  description: "Returns a Student"
+  statement:  
+    SELECT  mx.itesm.gradeexchanger.tema.Tema
+      WHERE  (temaId == _$tema_id )  
 
 }
 
