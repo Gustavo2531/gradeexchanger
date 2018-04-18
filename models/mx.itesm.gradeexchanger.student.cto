@@ -19,8 +19,10 @@ asset Student identified by studentId {
 }
 concept CoursesApproved{
   --> Course   courseId
+  o String    escuela
   o String    period
   o Double    grade
+  //
 }
 concept CoursesFailed{
   --> Course   courseId
@@ -29,8 +31,10 @@ concept CoursesFailed{
 }
 concept CurrentCourses{
   --> Course   courseId
+  --> School schoolId
   o String    period
   o Double    grade optional
+ // 
 }
 
 transaction CreateStudent {
@@ -72,6 +76,7 @@ transaction AssignCourse{
   o   String    studentId
   o String    period
   o   Double    grade
+
 }
 
 // Event indicating that aircraft was assigned
@@ -93,14 +98,17 @@ event CourseAssignedFailed {
 }
 
 transaction AssignCourseCurrent {
-  o   String[]    courseId
+  o   String    courseId
   o   String    studentId
-  o String    period
+  o   String    period
   o   Double    grade
+  o   String    escuelaExterna
+  o   String    courseIdExterna
+
 }
 
 // Event indicating that aircraft was assigned
 event CourseAssignedCurrent {
-  o   String[]    courseId
+  o   String    courseId
   o   String    studentId
 }
